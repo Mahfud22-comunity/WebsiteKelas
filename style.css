@@ -1,0 +1,311 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    color: white;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+    padding: 20vh;
+    background-color: #000;
+}
+
+
+/* BINTANG */
+  .stars {
+    position: absolute;
+    width: 90%;
+    height: 350%;
+    margin-left: -100px;
+    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: twinkle 5s ease-in-out infinite alternate;
+    opacity: 0.9;
+    filter: brightness(2);
+    position: fixed;
+  }
+
+  /* Bintang berdenyut terang–redup tapi tidak berpindah tempat */
+  @keyframes twinkle {
+    0%   { filter: brightness(1.2); opacity: 0.8; }
+    50%  { filter: brightness(2); opacity: 1; }
+    100% { filter: brightness(1.2); opacity: 0.8; }
+  }
+
+
+  /* METEOR */
+  .meteor {
+    position: absolute;
+    top: -50px;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(45deg, white, rgba(255,255,255,0));
+    border-radius: 50%;
+    animation: meteor-fall 2s linear infinite;
+  }
+
+  /* Beberapa meteor dengan posisi dan waktu berbeda */
+  .meteor:nth-child(2) { left: 20%; animation-delay: 1s; }
+  .meteor:nth-child(3) { left: 40%; animation-delay: 2.5s; }
+  .meteor:nth-child(4) { left: 70%; animation-delay: 0.8s; }
+  .meteor:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+  @keyframes meteor-fall {
+    0% {
+      transform: translate(0, 0) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-600px, 600px) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    background-color:transparent;
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: navbar 1.5s ease-in-out;
+}
+
+@keyframes navbar {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.navbar p{
+    font-size: 25px;
+    font-weight: 600;
+    color: #f4f4f4;
+    font-style: italic;
+}
+
+.navbar p span{
+    color: rgb(234, 187, 100);
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+  }
+.logo{
+    height: 40px;
+    width: auto;
+    margin-top: -13px;
+    border-radius: 50px;
+}
+
+.navbar .wrapper a{
+    text-decoration: none;
+    color: #f4f4f4;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    transition: 1s ease;
+}
+
+.navbar .wrapper .nav-war{
+  color: rgb(232, 170, 56);
+}
+
+.navbar .wrapper :hover{
+    color: rgb(180, 141, 67);
+}
+
+.body{
+  height: 620px; /* 100% tinggi layar */
+  width: 1500px;
+  background: url('foto6.jpeg') no-repeat center center;
+  background-size: cover; /* menyesuaikan seluruh layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin-top: -40px;
+  margin-left: -140px;
+  box-sizing: border-box;
+}
+
+.text{
+  text-align: left;
+  animation: slideFromLeft 1.2s ease-in-out forwards;
+  margin-top: -380px;
+  margin-left: -500px;
+}
+
+.text h1{
+  font-size: 50px;
+  font-weight: 900;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.text p{
+  color: rgb(255, 252, 252);
+  font-weight: 700;
+  margin-top:1.5vh;
+  font-style: italic;
+  line-height: 20px;
+  animation: slideFromLeft 2.5s ease-in-out forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);  /* Mulai dari kiri */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);      /* Posisi normal */
+  }
+}
+/* Container utama */
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 50px 0;
+  margin-top: 50px;
+  margin-left: 120px;
+}
+
+/* Box masing-masing */
+.feature-box {
+  background: rgb(210, 207, 207);  /* transparan gelap */
+  border-top: 3px solid #facc15;   /* garis kuning di atas */
+  width: 300px;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgb(246, 205, 44);
+}
+
+/* Ikon */
+.icon {
+  font-size: 40px;
+  color: #facc15; /* kuning emas */
+  margin-bottom: 15px;
+}
+
+.icon img{
+    height: 70px;
+    width: auto;
+}
+
+
+
+
+
+.container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 10%;
+      gap: 10px;
+      flex-wrap: wrap;
+      animation: animasitext 1.2s ease-in-out;
+    }
+
+    .text-section {
+      flex: 1 1 500px;
+      max-width: 900px;
+      line-height: 1.8;
+      text-align: left;
+      margin-left: -50px;
+      min-height: 200vh;
+      padding: 2 rem;
+      opacity: 0;
+      transform: translateY(60px);
+      animation: struktur 0.9s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+
+    .text-section:nth-child(1) { animation-delay: 0.1s; }
+    .text-section:nth-child(2) { animation-delay: 0.3s; }
+    .text-section:nth-child(3) { animation-delay: 0.5s; }
+
+    @keyframes struktur {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .text-section h1 {
+      font-size: 2.5rem;
+      color: rgb(231, 230, 230);
+      margin-bottom: 20px;
+      margin-top: 10vh;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(228, 227, 227, 0.7);
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      animation: sectionh1 1.5s ease;
+   }
+
+   @keyframes sectionh1 {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+    .text-section p {
+      font-size: 21px;
+      color: #dcdadaf4;
+      text-align: justify;
+      text-align: left;
+      margin-left: -50px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .text-section p b{
+      color: #f4f4f4;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+
+    @keyframes animasitext {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .text-section {
+        text-align: center;
+      }
+    }
