@@ -1,0 +1,351 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    color: white;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+    padding: 20vh;
+    margin: 0;
+    background-color: black;
+}
+
+/* BINTANG */
+  .stars {
+    position: absolute;
+    width: 90%;
+    height: 350%;
+    margin-left: -100px;
+    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: twinkle 5s ease-in-out infinite alternate;
+    opacity: 0.9;
+    filter: brightness(2);
+    position: fixed;
+  }
+
+  /* Bintang berdenyut terang–redup tapi tidak berpindah tempat */
+  @keyframes twinkle {
+    0%   { filter: brightness(1.2); opacity: 0.8; }
+    50%  { filter: brightness(2); opacity: 1; }
+    100% { filter: brightness(1.2); opacity: 0.8; }
+  }
+
+
+  /* METEOR */
+  .meteor {
+    position: absolute;
+    top: -50px;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(45deg, white, rgba(255,255,255,0));
+    border-radius: 50%;
+    animation: meteor-fall 2s linear infinite;
+  }
+
+  /* Beberapa meteor dengan posisi dan waktu berbeda */
+  .meteor:nth-child(2) { left: 20%; animation-delay: 1s; }
+  .meteor:nth-child(3) { left: 40%; animation-delay: 2.5s; }
+  .meteor:nth-child(4) { left: 70%; animation-delay: 0.8s; }
+  .meteor:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+  @keyframes meteor-fall {
+    0% {
+      transform: translate(0, 0) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-600px, 600px) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: navbar 1.5s ease-in-out;
+}
+
+@keyframes navbar {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.navbar p{
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+}
+
+.navbar p span{
+    color: rgb(234, 187, 100);
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+}
+.logo{
+    height: 40px;
+    width: auto;
+    margin-top: -13px;
+    border-radius: 50px;
+}
+
+.navbar .wrapper a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    transition: 1s ease;
+}
+
+.navbar .wrapper .nav-war{
+  color: rgb(232, 170, 56);
+}
+
+
+.navbar .wrapper :hover{
+    color: rgb(180, 141, 67);
+}
+
+
+/* === KONTAINER SLIDER === */
+    .slider-container {
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      background: none;
+      margin-left: 50px;
+      animation: slider-container 1.5s ease-in-out;
+    }
+    
+    @keyframes slider-container {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slider-container h1{
+      font-size: 50px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: 600;
+      font-style: italic;
+      color: white;
+      padding: 20px;
+    }
+    /* === SLIDER TRACKar === */
+    .slider {
+      display: flex;
+      width: 300%; /* 3 slide */
+      animation: slide1 6s infinite; /* 2 x 5 detik = 10 detik */
+    }
+
+    /* Pause saat hover */
+    .slider-container:hover .slider {
+      animation-play-state: paused;
+    }
+
+    /* === SETIAP SLIDE === */
+    .slide {
+      width: 33.333%; /* 100% / 3 */
+      display: grid;
+      gap:10px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .slide img {
+      width: 1000px;
+      height: 500px;
+      object-fit: cover;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+
+    /* === ANIMASI: GANTI SLIDE SETIAP 5 DETIK === */
+   @keyframes slide1 {
+ /* Slide 1: 0 - 3 detik */
+      0%, 31%   { transform: translateX(0); }
+
+      /* Slide 2: 3 - 6 detik */
+      33.333%, 64.333% { transform: translateX(-33.333%); }
+
+      /* Slide 3: 6 - 9 detik */
+      66.666%, 97.666% { transform: translateX(-66.666%); }
+
+      /* Kembali ke awal */
+      100%      { transform: translateX(0); }
+}
+
+    /* === RESPONSIF === */
+    @media (max-width: 768px) {
+      .slide {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 15px;
+      }
+    }
+
+
+    /* === BAGIAN BAWAH: 5 FOTO KECIL – INFINITE SCROLL === */
+    .bottom-row {
+      overflow: hidden;
+      border-radius: 12px;
+      padding: 40px;
+      color: black;
+    }
+
+    .bottom-row h1 {
+      font-size: 30px;
+      color: white;
+      text-align: left;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      
+    }
+
+    .bottom-row h1 hr {
+      border: 0;
+      height: 2px;
+      background: rgb(199, 195, 195);
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 150px;
+      text-align: 0;
+    }
+
+    /* Kontainer slider yang bergerak */
+    .bottom-slider {
+      display: flex;
+      width: 1000px;
+      gap: 10px;
+      animation: infiniteScroll 15s linear infinite; /* <-- KECEPATAN DIATUR DI SINI */
+    }
+
+    .bottom-slide {
+      min-width: calc(2% - 8px); /* 5 foto = 100% / 5 */
+      flex-shrink: 0;
+    }
+
+    .bottom-slide img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+
+    /* === ANIMASI INFINITE SCROLL (TAK TERHENTI) === */
+    @keyframes infiniteScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%); /* Geser 50% karena ada duplikat */
+      }
+    }
+
+    /* === RESPONSIF === */
+    @media (max-width: 768px) {
+      .bottom-slide img { height: 100px; }
+      .bottom-slide { min-width: calc(20% - 6px); }
+    }
+  
+    
+
+
+    /* === KONTAINER SLIDER === */
+    .bazar {
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 15px;
+      background: none;
+      margin-left: 10rem;
+    }
+
+    .bazar h1{
+      font-size: 30px;
+      color: white;
+      text-align: left;
+      margin-left: 40px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .bazar h1 hr{
+      border: 0;
+      height: 2px;
+      background: rgb(199, 195, 195);
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 80px;
+      text-align: 0;
+    }
+
+    /* === SLIDER TRACKar === */
+    .bazar-slider {
+      display: flex;
+      width: 200%; /* 2 slide */
+      animation: slide3 10s infinite; /* 2 x 5 detik = 10 detik */
+    }
+
+    /* Pause saat hover */
+    .bazar-slider-container:hover  {
+      animation-play-state: paused;
+    }
+
+    /* === SETIAP SLIDE === */
+    .bazar-slide {
+      width: 50%; /* 100% / 2 */
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .bazar-slide img {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      border: 2px solid white;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .bazar-slide img:hover {
+      transform: scale(1.05);
+    }
+
+    /* === ANIMASI: GANTI SLIDE SETIAP 5 DETIK === */
+    @keyframes slide3 {
+      0%, 45%   { transform: translateX(0); }        /* Slide 1: 5 detik */
+      50%, 95%  { transform: translateX(-50%); }     /* Slide 2: 5 detik */
+      100%      { transform: translateX(0); }        /* Kembali ke awal */
+    }
+
+    /* === RESPONSIF === */
+    @media (max-width: 768px) {
+      .p5-slide {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 15px;
+      }
+    }
