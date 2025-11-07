@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    color: white;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+    padding: 20vh;
+    margin: 0;
+    background-color: #000;
+}
+
+/* BINTANG */
+ .stars {
+   position: absolute;
+   width: 90%;
+   height: 350%;
+   margin-left: -100px;
+   background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+   animation: twinkle 5s ease-in-out infinite alternate;
+   opacity: 0.9;
+   filter: brightness(2);
+   position: fixed;
+ }
+
+ /* Bintang berdenyut terang–redup tapi tidak berpindah tempat */
+ @keyframes twinkle {
+   0%   { filter: brightness(1.2); opacity: 0.8; }
+   50%  { filter: brightness(2); opacity: 1; }
+   100% { filter: brightness(1.2); opacity: 0.8; }
+ }
+
+
+ /* METEOR */
+ .meteor {
+   position: absolute;
+   top: -50px;
+   width: 2px;
+   height: 80px;
+   background: linear-gradient(45deg, white, rgba(255,255,255,0));
+   border-radius: 50%;
+   animation: meteor-fall 2s linear infinite;
+ }
+
+ /* Beberapa meteor dengan posisi dan waktu berbeda */
+ .meteor:nth-child(2) { left: 20%; animation-delay: 1s; }
+ .meteor:nth-child(3) { left: 40%; animation-delay: 2.5s; }
+ .meteor:nth-child(4) { left: 70%; animation-delay: 0.8s; }
+ .meteor:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+ @keyframes meteor-fall {
+   0% {
+     transform: translate(0, 0) rotate(45deg);
+     opacity: 1;
+   }
+   100% {
+     transform: translate(-600px, 600px) rotate(45deg);
+     opacity: 0;
+   }
+ }
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    background-color:transparent;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    animation: navbar 1.5s ease-in-out;
+}
+
+@keyframes navbar {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.navbar p{
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+}
+
+.navbar p span{
+    color: rgb(234, 187, 100);
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+}
+.logo{
+    height: 40px;
+    width: auto;
+    margin-top: -13px;
+    border-radius: 50px;
+}
+
+.navbar .wrapper a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    transition: 1s ease;
+}
+
+.navbar .wrapper .nav-war{
+  color: rgb(232, 170, 56);
+}
+
+.navbar .wrapper :hover{
+    color: rgb(180, 141, 67);
+}
+
+
+
+.struktur {
+    font-size: 2.5rem;
+    color: rgb(231, 230, 230);
+    margin-bottom: 10px;
+    margin-top: 10vh;
+    text-shadow: 0 0 10px rgba(228, 227, 227, 0.7);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    animation: struktur 1.5s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    margin-top: 5vh;
+    animation: fadeIn 1.3s ease;
+}
+
+.card{
+    background: none;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+      transform: scale(1.03);
+    }
+
+.role {
+    background: #ffd700;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid;
+    border-bottom: 3px solid;
+    width: 250px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    position: relative;
+    animation: glowUp 1.5s ease-in-out;
+}
+
+.name img{
+    width: 125px;
+    height: 135px;
+    border-radius: 8px;
+}
+.name p{
+    font-size: 12px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 4px;
+    color: black;
+}
+
+.name {
+    background: #f1ebebe5;
+    color: #333;
+    padding: 8px 16px;
+    margin-left: 35px;
+    border: 1px solid;
+    border-radius: 0 0 7px 7px;
+    width: 190px;
+    border-top: none;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    position: relative;
+    animation: glowUp 1.5s ease-in-out;
+     transition: transform 0.3s ease;
+}
+
+.name p{
+    color: #333;
+}
+
+/* Struktur dua kolom bawah */
+.row {
+    display: flex;
+    gap: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes struktur {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowUp {
+    0% { box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    50% {  box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+}
+
+.tujuan{
+    flex: 0 0 500px;
+    max-width: 950px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.tujuan h1{
+    color: rgba(255, 255, 255, 0.959);
+    margin: 20px;
+    margin-top: 20vh;
+    text-align: left;
+    font-size: 40px;
+}
+
+.tujuan hr{
+     border: 0;
+      height: 2px;
+      background: rgb(241, 241, 241);
+      margin-top: -20px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+      width: 150px;
+      text-align: justify;
+      align-items: just;
+}
+
+.tujuan p{
+    text-align: justify;
+    display: flex;
+    font-size: 21px;
+    color: rgba(222, 221, 221, 0.95);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+
